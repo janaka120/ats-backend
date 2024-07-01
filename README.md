@@ -49,8 +49,9 @@ MYSQL_DATABASE='ats_db'
 npm start
 ```
 
-This will start the server, typically listening on port 8080
-**Make sure to run MYSQL server before run the server**
+This will start the server, typically listening on port 8080.\
+**Make sure to run MYSQL server before run the server.**\
+**First time run the server MOCK User data is created(config/db-setup.js).**
 
 ### API Specifications
 
