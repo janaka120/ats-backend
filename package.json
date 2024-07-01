@@ -1,0 +1,27 @@
+{
+  "name": "ats-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "database.js",
+  "scripts": {
+    "test": "mocha --timeout  5000",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "email-validator": "^2.0.4",
+    "express": "^4.19.2",
+    "express-validator": "^7.1.0",
+    "mysql2": "^3.10.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.1.0",
+    "nodemon": "^3.1.4",
+    "sinon": "^18.0.0"
+  }
+}
