@@ -1,0 +1,56 @@
+# Dependencies
+/node_modules/
+
+# Build output
+/dist
+/out
+
+# Runtime data
+/pids*.pid  # PID files
+*.pid.lock
+
+# Testing Frameworks
+/coverage/
+/test-results/
+
+# IDE Specific Files
+/.idea/
+/.vscode/
+
+# Temporary Directories
+/tmp/
+
+# Secret Files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Logs
+*.log
+
+# NPM Lockfile
+package-lock.json
+
+# Yarn Lockfile
+yarn.lock
+
+# Specific linters or formatters
+.eslintcache
+.stylelintcache
+
+# Parcel Bundler Cache
+.parcel-cache/
+
+# Recommended by GitHub
+# *.md
+*.markdown
+LICENSE
+# README.md
+CHANGELOG.md
+
+# Optional: Specific files or directories
+# Add any additional files or directories you want to exclude here
+# For example, if you have a specific configuration file:
+# /config/database.json
