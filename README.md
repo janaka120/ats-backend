@@ -50,11 +50,19 @@ npm start
 ```
 
 This will start the server, typically listening on port 8080
+**Make sure to run MYSQL server before run the server**
 
 ### API Specifications
 
 #### BaseURL: http://localhost:8080/api
 
+Request Headers require
+```
+"Content-Type: application/json"
+"Authorization: bearer TEST_JWT_TOKEN"
+```
+
+JWT Token validation does not in the auth logic. Verify Authorization header includes in the request.
 
 #### Post register one or more students to a specified teacher(POST /api/register)
 
@@ -74,8 +82,7 @@ curl -X POST "BaseURL/register" \
 Response:
 ```
 {
-  "message": "Registered student under teacher successfully.",
-  "status": true
+  "message": "Registered student under teacher successfully."
 }
 ```
 
@@ -90,8 +97,6 @@ curl -X GET "BaseURL/commonstudents?teacher=teacherken@gmail.com" \
 Response:
 ```
 {
-  "message": "Fetch student under teachers successfully.",
-  "status": true,
   "students": [
     "studentjon@gmail.com",
     "studenthon@gmail.com"
@@ -113,8 +118,7 @@ curl -X POST "BaseURL/suspend" \
 Response:
 ```
 {
-  "message": "Suspended student successfully.",
-  "status": true
+  "message": "Suspended student successfully."
 }
 ```
 
@@ -134,8 +138,6 @@ curl -X POST "BaseURL/retrievefornotifications" \
 Response:
 ```
 {
-  "message": "Notify student successfully.",
-  "status": true,
   "recipients": [
     "studenthon@gmail.com"
   ]
@@ -176,8 +178,7 @@ Response:
       "created_at": "2024-06-30T23:33:56.000Z",
       "updated_at": "2024-06-30T23:33:56.000Z"
     }
-  ],
-  "status": true
+  ]
 }
 ```
 
@@ -208,7 +209,52 @@ Response:
     "role": "teacher",
     "created_at": "2024-06-30T14:54:23.000Z",
     "updated_at": "2024-06-30T14:54:23.000Z"
-  },
-  "status": true
+  }
 }
+```
+
+#### Error
+```
+curl -X POST "BaseURL/create" \
+     -H "Content-Type: application/json" \
+     -H "Authorization: bearer TEST_JWT_TOKEN" \
+     -d '{
+           "email": "teacherken@gmail.com",
+           "name": "Ken Teacher",
+           "password": "mockpassword001",
+           "role": "teacher"
+         }'
+```
+
+Response:
+```
+{
+  "message":"Duplicate entry 'teacherken@gmail.com' for key 'users.email'"
+}
+```
+
+
+Error with out Authorization header
+
+```
+curl -X POST "BaseURL/create" \
+     -H "Content-Type: application/json" \
+     -d '{
+           "email": "teacherken@gmail.com",
+           "name": "Ken Teacher",
+           "password": "mockpassword001",
+           "role": "teacher"
+         }'
+```
+
+Response:
+```
+{
+  "message":"Not authenticated."
+}
+```
+
+### Run test
+```bash
+npm run test
 ```

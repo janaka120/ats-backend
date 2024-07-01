@@ -27,9 +27,9 @@ exports.getUsers = async (req, res, next) => {
       throw new Error(result.message);
     }
     res.status(200).json({
-      message: "Fetched users successfully.",
+      // message: "Fetched users successfully.",
       data: result.data,
-      status: true,
+      // status: true,
     });
   } catch (err) {
     if (!err.statusCode) {
@@ -56,9 +56,9 @@ exports.createUser = async (req, res, next) => {
       throw new Error(result.message);
     }
     res.status(200).json({
-      message: "Create user successfully.",
+      // message: "Create user successfully.",
       data: result.data,
-      status: true,
+      // status: true,
     });
   } catch (err) {
     if (!err.statusCode) {
@@ -84,7 +84,7 @@ exports.registerUser = async (req, res, next) => {
     }
     res.status(200).json({
       message: "Registered student under teacher successfully.",
-      status: true,
+      // status: true,
     });
   } catch (err) {
     if (!err.statusCode) {
@@ -115,8 +115,8 @@ exports.getCommonStudent = async (req, res, next) => {
     }
     const data = result.data.map((user) => user.email);
     res.status(200).json({
-      message: "Fetch student under teachers successfully.",
-      status: true,
+      // message: "Fetch student under teachers successfully.",
+      // status: true,
       students: data,
     });
   } catch (err) {
@@ -142,7 +142,7 @@ exports.suspendUser = async (req, res, next) => {
     }
     res.status(200).json({
       message: "Suspended student successfully.",
-      status: true,
+      // status: true,
     });
   } catch (err) {
     if (!err.statusCode) {
@@ -194,8 +194,8 @@ exports.retrieveNotificationsUser = async (req, res, next) => {
     }
     const recipients = notifyStudentResult.data.map((student) => student.email);
     res.status(200).json({
-      message: "Notify student successfully.",
-      status: true,
+      // message: "Notify student successfully.",
+      // status: true,
       recipients: recipients,
     });
   } catch (err) {
